@@ -1,0 +1,16 @@
+<h1>Edit a salamander</h1>
+
+<form action="/salamanders/<%= @salamander.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <div>
+    <input type="text" name="name" placeholder="Name" value="<%= @salamander.name %>">
+  </div>
+  <div>
+    <input type="text" name="continent" placeholder="Continent" value="<%= @salamander.continent %>">
+  </div>
+  <div>
+    <input type="text" name="color" placeholder="Color" value="<%= @salamander.color %>">
+  </div>
+
+  <input type="submit" value="Edit salamander">
+</form>

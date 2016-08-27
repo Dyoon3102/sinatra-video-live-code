@@ -3,3 +3,12 @@
 <p>Salamander name: <%= @salamander.name %></p>
 <p>Salamander lives in <%= @salamander.continent %></p>
 <p>Salamander is <%= @salamander.color %> colored.</p>
+
+<p><a href="/salamanders/<%= @salamander.id %>/edit">Edit this salamander</a></p>
+
+<p>
+  <form type="/salamanders/<%= @salamander.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Remove it">
+  </form>
+</p>

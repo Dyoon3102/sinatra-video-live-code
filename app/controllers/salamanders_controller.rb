@@ -21,3 +21,21 @@ get '/salamanders/:id' do
   @salamander = Salamander.find(params[:id])
   erb :'/salamanders/show'
 end
+
+get '/salamanders/:id/edit' do
+  @salamander = Salamander.find(params[:id])
+  erb :'/salamanders/edit'
+end
+
+put '/salamanders/:id' do
+  salamander = Salamander.find(params[:id])
+  salamander.update(name: params[:name], continent: params[:continent], color: params[:color])
+
+  redirect "/salamanders/#{salamander.id}"
+end
+
+delete '/salamanders/:id' do
+  salamander = Salamander.find(params[:id])
+  salamander.destroy
+  redirect "/salamanders"
+end
