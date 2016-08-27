@@ -1,0 +1,10 @@
+<h1>All Salamanders</h1>
+
+<% @salamanders.each do |salamander| %>
+  <div>
+    <h3><%= salamander.name %> the Salamander</h3>
+    <a href="/salamanders/<%= salamander.id %>"><%= salamander.name %>'s profile</a>
+    <p><%= salamander.name %> lives in <%= salamander.continent %> continent!</p>
+    <p><%= salamander.name %> is <%= salamander.color %> colored.</p>
+  </div>
+<% end %>
