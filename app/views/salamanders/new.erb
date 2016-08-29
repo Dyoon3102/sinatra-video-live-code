@@ -2,13 +2,16 @@
 
 <form action="/salamanders" method="POST">
   <div>
-    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="salamander[name]" placeholder="Name">
   </div>
   <div>
-    <input type="text" name="continent" placeholder="Continent">
+    <input type="password" name="salamander[password]" placeholder="Password">
   </div>
   <div>
-    <input type="text" name="color" placeholder="Color">
+    <input type="text" name="salamander[continent]" placeholder="Continent">
+  </div>
+  <div>
+    <input type="text" name="salamander[color]" placeholder="Color">
   </div>
 
   <input type="submit" value="Create salamander">

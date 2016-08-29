@@ -13,10 +13,10 @@ get '/salamanders/new' do
   erb :'/salamanders/new'
 end
 
-# 
+#
 post '/salamanders' do
   skills_records = params[:skill].map { |skill_id| Skill.find(skill_id) }
-  salamander = Salamander.create(name: params[:name], continent: params[:continent], color: params[:color], skill: skills_records)
+  salamander = Salamander.create(params[:salamander].merge(skill: skills_records)
   # redirect '/'
   redirect "/salamanders/#{salamander.id}"
 end
