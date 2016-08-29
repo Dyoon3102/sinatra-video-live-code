@@ -7,12 +7,16 @@ get '/salamanders' do
   erb :'/salamanders/index'
 end
 
+# Salamanders new action
 get '/salamanders/new' do
+  @skills = Skill.all
   erb :'/salamanders/new'
 end
 
+# 
 post '/salamanders' do
-  salamander = Salamander.create(params)
+  skills_records = params[:skill].map { |skill_id| Skill.find(skill_id) }
+  salamander = Salamander.create(name: params[:name], continent: params[:continent], color: params[:color], skill: skills_records)
   # redirect '/'
   redirect "/salamanders/#{salamander.id}"
 end
@@ -29,7 +33,7 @@ end
 
 put '/salamanders/:id' do
   salamander = Salamander.find(params[:id])
-  salamander.update(name: params[:name], continent: params[:continent], color: params[:color])
+  salamander.update(params[:salamander])
 
   redirect "/salamanders/#{salamander.id}"
 end
