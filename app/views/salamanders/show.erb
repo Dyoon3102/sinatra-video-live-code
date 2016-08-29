@@ -1,8 +1,21 @@
 <h1><%= @salamander.name %>'s profile</h1>
 
 <p>Salamander name: <%= @salamander.name %></p>
-<p>Salamander lives in <%= @salamander.continent %></p>
-<p>Salamander is <%= @salamander.color %> colored.</p>
+<p><%= @salamander.name %> lives in <%= @salamander.continent %></p>
+<p><%= @salamander.name %> is <%= @salamander.color %> colored.</p>
+
+<div>
+	<% if @salamander.skill.any? %>
+		<h3><%= @salamander.name %><h3>
+		<ul>
+			<% @salamander.skill.each do |skill| %>
+			<li><%= skill.name %></li>
+			<% end %>
+		</ul>
+	<% else %>
+		<p><%= @salamander.name %> has no skills.</p> 
+	<% end %>
+</div>
 
 <p><a href="/salamanders/<%= @salamander.id %>/edit">Edit this salamander</a></p>
 
